@@ -10,9 +10,7 @@ const KnexSessionStore = require('connect-session-knex')(session);
 
 server.use(express.json());
 server.use(cors());
-server.use(session(sessionConfig));
-
-const sessionConfig = {
+server.use(session({
     name: 'authIsession',
     secret: 'aweioh23489uj.awej8cvac-klsm',
     cookie: {
@@ -29,7 +27,7 @@ const sessionConfig = {
         createtable: true,
         clearInterval: 1000 * 60 * 60
     })
-  }
+}));
 
 //endpoints  
 //login
